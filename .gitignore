@@ -1,0 +1,8 @@
+# Foundry build outputs
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+# Node
+node_modules/
+# Env
+.env

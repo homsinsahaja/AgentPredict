@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentPredict — Daily BTC Direction, for Agent ID Holders</title>
+<meta name="description" content="AgentPredict is a free daily BTC direction prediction game on BNB Chain. Only Agent ID holders can vote. Points only — no stakes, no token, no prizes.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>AgentPredict</h1>
+  <p class="tagline">Daily BTC direction prediction — for Agent ID holders only.</p>
+  <div id="wallet-bar">
+    <span id="wallet-status">Wallet not connected</span>
+    <button id="connect-btn">Connect Wallet</button>
+  </div>
+</header>
+
+<main>
+  <section id="notice" class="hidden"></section>
+
+  <section id="round-card" class="card hidden">
+    <h2>Today's question</h2>
+    <p class="question">Will BTC close the day <strong>above</strong> or <strong>below</strong> today's reference price?</p>
+    <div class="prices">
+      <div><span class="label">Reference price</span><span id="ref-price" class="big">—</span></div>
+      <div><span class="label">Current BTC price</span><span id="live-price" class="big">—</span></div>
+      <div><span class="label">Round ends in</span><span id="countdown" class="big">—</span></div>
+    </div>
+    <div class="tally">
+      <div class="tally-up">▲ Up: <span id="total-up">0</span></div>
+      <div class="tally-down">▼ Down: <span id="total-down">0</span></div>
+    </div>
+    <div id="vote-row">
+      <button id="vote-up" class="vote-btn up">Vote ▲ Up</button>
+      <button id="vote-down" class="vote-btn down">Vote ▼ Down</button>
+    </div>
+    <p id="vote-status" class="status"></p>
+    <p class="fineprint">One vote per Agent ID address per day. Voting costs gas only — there is nothing to stake and nothing to buy.</p>
+  </section>
+
+  <section id="mystats-card" class="card hidden">
+    <h2>My stats</h2>
+    <div class="stats">
+      <div><span class="label">Points</span><span id="my-points" class="big">0</span></div>
+      <div><span class="label">Streak (days)</span><span id="my-streak" class="big">0</span></div>
+      <div><span class="label">Total votes</span><span id="my-votes" class="big">0</span></div>
+      <div><span class="label">Pending points</span><span id="my-pending" class="big">0</span></div>
+    </div>
+    <button id="settle-btn" class="hidden">Collect pending points</button>
+    <p class="fineprint">Correct prediction: +10 points. Voting: +1 point. Points are just points — they have no cash value, cannot be transferred, and are not a token.</p>
+  </section>
+
+  <section id="leaderboard-card" class="card hidden">
+    <h2>Leaderboard</h2>
+    <ol id="leaderboard"><li>Loading…</li></ol>
+  </section>
+
+  <section id="history-card" class="card hidden">
+    <h2>Recent rounds</h2>
+    <table>
+      <thead><tr><th>Day (UTC)</th><th>Reference</th><th>Close</th><th>Result</th><th>Votes</th></tr></thead>
+      <tbody id="history-body"><tr><td colspan="5">Loading…</td></tr></tbody>
+    </table>
+  </section>
+
+  <section id="about-card" class="card">
+    <h2>How it works</h2>
+    <ul>
+      <li>Each UTC day is one round. The reference price is the Chainlink BTC/USD price when the round opens.</li>
+      <li>Only wallets holding an Agent ID can vote. Your Agent ID is checked on-chain — no account, no sign-up.</li>
+      <li>When the first vote of a new day arrives, the previous round resolves against the current Chainlink price. A tie counts as Up.</li>
+      <li>Your previous day's points are collected automatically when you vote again, or with the “Collect pending points” button.</li>
+    </ul>
+    <p class="fineprint">AgentPredict is a hackathon project for the Binance Wallet + BNB Chain Agent ID Hackathon. It holds no funds, sells nothing, and promises no returns. Contract: <a id="contract-link" href="#" target="_blank" rel="noopener">not deployed yet</a> · <a href="https://bscscan.com" target="_blank" rel="noopener">BscScan</a></p>
+  </section>
+</main>
+
+<footer>
+  <p>AgentPredict — built for the Agent ID Hackathon. Not affiliated with Binance or BNB Chain.</p>
+</footer>
+
+<script src="vendor/ethers.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
