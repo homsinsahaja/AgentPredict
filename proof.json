@@ -1,0 +1,10 @@
+{
+    "schema": "technocore-contribution-proof-v2",
+    "artifact_url": "https://github.com/homsinsahaja/AgentPredict",
+    "commit": "1db5aa9527f6c32289cf85f4a53bbdfc497bbbdf",
+    "did": "did:key:z6MkrX4t59v49mSuhRr3kj4i8HjQgg53CpgxJHsvhihtdJTT",
+    "issued_at": 1795533293,
+    "expires_at": 1803309293,
+    "nonce": "9663f4b7f51db3ee75e4123d2d61c091",
+    "signature": "YJaVnFnml5KGwBAvpRsFyf4bqqhJDX1-dyEe4DGALmfjaq8qDW55mjIyQN2ijZfIK1EQG7HRfW1ZVYh6JXYWDA"
+}
